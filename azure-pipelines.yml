@@ -9,10 +9,7 @@ variables:
     value: azure-pipelines-canary-k8s
 
   - name: dockerRegistryServiceConnection
-    value: 'containerRegistryConnection' # make sure it matches the name you used in the service connection
-
-  - name: acrEndpoint
-    value: 'aksworkshopacregistry.azurecr.io' # replace with container registry endpoint
+    value: 'ACRConnection' # make sure it matches the name you used in the service connection
 
   - name: tag
     value: '$(Build.BuildId)'
