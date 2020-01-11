@@ -1,0 +1,25 @@
+trigger:
+- master
+
+pool:
+  vmImage: Ubuntu-16.04
+
+variables:
+  - name: imageName
+    value: azure-pipelines-canary-k8s
+
+  - name: dockerRegistryServiceConnection
+    value: 'containerRegistryConnection' # make sure it matches the name you used in the service connection
+
+  - name: tag
+    value: '$(Build.BuildId)'
+
+steps:
+- task: Docker@2
+  displayName: Build and push image
+  inputs:
+    repository: $(imageName)
+    command: buildAndPush
+    Dockerfile: app/Dockerfile
+    containerRegistry: $(dockerRegistryServiceConnection)
+    tags: $(tag)
