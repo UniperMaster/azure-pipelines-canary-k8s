@@ -19,7 +19,7 @@ spec:
       containers:
       - name: sampleapp
         #replace <foobar> with your container registry. Example: contosodemo.azurecr.io
-        image: aksworkshopacregistry.azurecr.io/azure-pipelines-canary-k8s
+        image: aksworkshopacregistry.azurecr.io/azure-pipelines-canary-k8s:placeholdertag # replace with your own repository. Due to a bug, leave the :placeholdertag tag in there to allow the pipeline to replace it
         imagePullPolicy: Always
         ports:
         - containerPort: 8000
